@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hybrid Thin Film Processing Laboratory | Chonnam National University</title>
+<meta name="description" content="Hybrid Thin Film Processing Laboratory (HTFP Lab), School of Chemical Engineering, Chonnam National University. CVD/ALD thin-film processing, semiconductor/photodetector/sensor devices, and materials for semiconductor packaging. PI: Prof. Hyeonghun Kim.">
+
+<!--
+  ────────────────────────────────────────────────
+  EDITING NOTES
+  ・ To add a publication, copy one <li class="pub"> block.
+    Set data-year and data-select="1" (for Selected papers) and the filter works automatically.
+  ・ To add a year filter button, copy one .chip button and set data-filter.
+  ・ Items marked [EDIT] are placeholders — replace with real values.
+  ────────────────────────────────────────────────
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#101A2B;
+  --paper:#ECEFF3;
+  --card:#F7F9FB;
+  --rule:#CBD3DC;
+  --muted:#5C6A7D;
+  --signal:#1F3FE0;
+
+  --serif:"Newsreader",serif;
+  --sans:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",monospace;
+
+  --pad:clamp(20px,5vw,72px);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-weight:400;
+  line-height:1.7;letter-spacing:-0.005em;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+
+/* ───── utility type ───── */
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase}
+.eyebrow{color:var(--muted);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--signal);flex:none}
+
+/* ───── top bar ───── */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(236,239,243,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.mark{display:flex;align-items:baseline;gap:9px;font-weight:600;font-size:15px;letter-spacing:-.02em;white-space:nowrap}
+.mark span{font-family:var(--mono);font-size:11px;color:var(--signal);letter-spacing:.1em}
+nav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-block:6px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+nav a:hover{color:var(--ink);border-color:var(--signal)}
+
+/* ───── hero ───── */
+.hero{
+  position:relative;padding-block:clamp(64px,11vw,132px) clamp(44px,7vw,80px);
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:34px 34px;background-position:center;
+  border-bottom:1px solid var(--rule);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 15% 0%,rgba(236,239,243,.35) 0%,var(--paper) 72%);
+}
+.hero .wrap{position:relative;z-index:1}
+.thesis{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(32px,5.6vw,66px);line-height:1.16;letter-spacing:-.028em;
+  margin-block:26px 0;max-width:22ch;
+}
+.thesis b{font-weight:600;color:var(--signal);font-style:normal}
+.trace{height:1px;background:var(--signal);margin:30px 0 22px;transform-origin:left;transform:scaleX(0);animation:draw 1.1s .25s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes draw{to{transform:scaleX(1)}}
+.lede{max-width:60ch;color:var(--muted);font-size:15.5px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.btn{
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  padding:11px 20px;border:1px solid var(--ink);transition:.2s;
+}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:var(--signal);border-color:var(--signal)}
+.btn.ghost:hover{border-color:var(--signal);color:var(--signal)}
+
+.stats{display:flex;flex-wrap:wrap;gap:0 40px;margin-top:clamp(40px,6vw,68px);border-top:1px solid var(--rule);padding-top:18px}
+.stat{padding-right:40px}
+.stat dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stat dd{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1.3;letter-spacing:-.02em}
+
+/* ───── section common ───── */
+section{padding-block:clamp(56px,8vw,104px);border-bottom:1px solid var(--rule)}
+.head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.head h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,34px);letter-spacing:-.025em}
+.head .idx{font-family:var(--mono);font-size:12px;color:var(--signal);letter-spacing:.12em}
+
+/* ───── research areas ───── */
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.area{background:var(--card);padding:28px 24px 30px;transition:background .25s}
+.area:hover{background:#fff}
+.area .n{font-family:var(--mono);font-size:11px;color:var(--signal);letter-spacing:.14em}
+.area h3{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.015em;margin:12px 0 10px}
+.area p{font-size:14.5px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);border:1px solid var(--rule);padding:3px 8px}
+
+/* ───── publications ───── */
+.filter{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+.chip{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
+  padding:7px 14px;border:1px solid var(--rule);background:transparent;color:var(--muted);
+  cursor:pointer;transition:.18s;
+}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.pubs{list-style:none;border-top:1px solid var(--rule)}
+.pub{display:grid;grid-template-columns:64px 1fr;gap:0 18px;padding:20px 0 20px 14px;border-bottom:1px solid var(--rule);position:relative;transition:padding-left .2s,background .2s}
+.pub::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--signal);transform:scaleY(0);transform-origin:top;transition:transform .22s}
+.pub:hover{padding-left:22px;background:var(--card)}
+.pub:hover::before{transform:scaleY(1)}
+.pub .yr{font-family:var(--mono);font-size:12px;color:var(--signal);padding-top:5px}
+.pub h3{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.45;letter-spacing:-.01em}
+.role-tag{font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--signal);border:1px solid var(--signal);padding:2px 7px;margin-right:9px;letter-spacing:.06em;vertical-align:3px;white-space:nowrap}
+.pub .au{font-size:13.5px;color:var(--muted);margin-top:6px}
+.pub .au em{font-style:normal;color:var(--ink);font-weight:600;border-bottom:1px solid var(--signal)}
+.pub .venue{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:7px;letter-spacing:.04em}
+.pub .links{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap}
+.pub .links a{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;border:1px solid var(--rule);padding:3px 9px;transition:.18s}
+.pub .links a:hover{border-color:var(--signal);color:var(--signal)}
+.star{font-family:var(--mono);font-size:10px;color:var(--paper);background:var(--signal);border:1px solid var(--signal);padding:2px 7px;margin-left:9px;vertical-align:3px;letter-spacing:.06em;white-space:nowrap}
+.empty{padding:34px 0;color:var(--muted);font-size:14px}
+.pubnote{margin-top:16px;font-size:13px;color:var(--muted)}
+.more{margin-top:18px;display:inline-block}
+
+/* ───── people ───── */
+.pi{display:grid;grid-template-columns:180px 1fr;gap:30px;align-items:start;padding-bottom:34px;margin-bottom:34px;border-bottom:1px solid var(--rule)}
+.photo{aspect-ratio:1;background:var(--card);border:1px solid var(--rule);display:grid;place-items:center;font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:center;padding:10px}
+.pi h3{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.015em}
+.pi .role{font-family:var(--mono);font-size:11.5px;color:var(--signal);letter-spacing:.08em;margin-top:6px}
+.pi p{font-size:14.5px;color:var(--muted);margin-top:14px;max-width:64ch}
+.pi .links{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.pi .links a{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;border:1px solid var(--rule);padding:4px 10px;transition:.18s}
+.pi .links a:hover{border-color:var(--signal);color:var(--signal)}
+.grouplabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+.grouplabel::after{content:"";flex:1;height:1px;background:var(--rule)}
+.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.member{background:var(--card);padding:16px 16px 18px;border-top:2px solid transparent;transition:border-color .2s,background .2s}
+.member:hover{border-top-color:var(--signal);background:#fff}
+.member strong{font-size:14.5px;font-weight:600;display:block;margin-bottom:2px}
+.member span{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+
+/* ───── news ───── */
+.news{list-style:none;border-top:1px solid var(--rule)}
+.news li{display:grid;grid-template-columns:112px 1fr;gap:18px;padding:17px 0;border-bottom:1px solid var(--rule)}
+.news time{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding-top:3px;letter-spacing:.04em}
+.news p{font-size:15px}
+
+/* ───── join / contact ───── */
+.join{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,5vw,64px)}
+.join h3{font-family:var(--serif);font-size:clamp(22px,2.8vw,28px);font-weight:600;letter-spacing:-.02em;margin-bottom:14px}
+.join p{color:var(--muted);font-size:15px;max-width:50ch}
+.join ul{list-style:none;margin-top:18px}
+.join ul li{font-size:14.5px;padding:9px 0;border-bottom:1px solid var(--rule);display:flex;gap:12px}
+.join ul li::before{content:"→";color:var(--signal);font-family:var(--mono);font-size:12px}
+.contact dl{border-top:1px solid var(--ink)}
+.contact div{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.contact dt{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
+.contact dd{font-size:14.5px;word-break:break-word}
+.contact dd a:hover{color:var(--signal)}
+
+footer{padding-block:30px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* ───── reveal animation ───── */
+.rise{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.rise.in{opacity:1;transform:none}
+
+@media (max-width:760px){
+  nav{display:none}
+  .pi{grid-template-columns:1fr;gap:20px}
+  .photo{max-width:150px}
+  .join{grid-template-columns:1fr}
+  .news li{grid-template-columns:1fr;gap:4px}
+  .pub{grid-template-columns:1fr;gap:8px}
+  .pub .yr{padding-top:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rise{opacity:1;transform:none}
+  .trace{transform:scaleX(1)}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" class="mark">Hybrid Thin Film Processing Lab <span>HTFP</span></a>
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#people">People</a>
+      <a href="#news">News</a>
+      <a href="#join">Join Us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ───── hero ───── -->
+  <div class="hero">
+    <div class="wrap">
+      <p class="mono eyebrow">School of Chemical Engineering · Chonnam National University</p>
+      <h1 class="thesis">Engineering films one atomic layer at a time — <b>from process to device.</b></h1>
+      <div class="trace"></div>
+      <p class="lede">The Hybrid Thin Film Processing Laboratory (HTFP Lab) designs thin films by CVD and ALD, builds them into semiconductor, photodetector, and sensor devices, and extends the same process insight to materials for semiconductor packaging. We start from precursors and surface reactions, and finish at device performance and reliability.</p>
+      <div class="cta">
+        <a href="#publications" class="btn solid">Publications</a>
+        <a href="#join" class="btn ghost">We're recruiting</a>
+      </div>
+      <dl class="stats">
+        <div class="stat"><dt>Citations</dt><dd>1,300+</dd></div>
+        <div class="stat"><dt>Members</dt><dd>9</dd></div>
+        <div class="stat"><dt>Research Areas</dt><dd>3</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- ───── research ───── -->
+  <section id="research">
+    <div class="wrap">
+      <div class="head rise">
+        <span class="idx">01 / RESEARCH</span>
+        <h2>Research Areas</h2>
+      </div>
+      <div class="areas rise">
+        <article class="area">
+          <p class="n">AREA 01</p>
+          <h3>CVD / ALD Thin-Film Processing</h3>
+          <p>We control film composition and thickness at the atomic scale using chemical vapor deposition and atomic layer deposition — from precursor chemistry and surface reaction mechanisms to step coverage on high-aspect-ratio structures and low-temperature / plasma-enhanced process windows.</p>
+          <div class="tags"><span class="tag">ALD</span><span class="tag">CVD</span><span class="tag">PEALD</span><span class="tag">oCVD</span><span class="tag">PRECURSOR</span><span class="tag">STEP COVERAGE</span></div>
+        </article>
+        <article class="area">
+          <p class="n">AREA 02</p>
+          <h3>Semiconductor · Photodetector · Sensor</h3>
+          <p>We turn engineered films into working devices and verify them by their figures of merit — oxide semiconductors and channel/dielectric interfaces, photodetector responsivity and dark current, and the sensitivity and stability of chemical and environmental sensors.</p>
+          <div class="tags"><span class="tag">PHOTODETECTOR</span><span class="tag">OXIDE SEMICONDUCTOR</span><span class="tag">CHEMICAL SENSOR</span><span class="tag">SCINTILLATOR</span></div>
+        </article>
+        <article class="area">
+          <p class="n">AREA 03</p>
+          <h3>Materials for Semiconductor Packaging</h3>
+          <p>We study the materials and interfaces demanded by back-end processes — insulating and barrier films, adhesion and thermal/moisture reliability at bonded interfaces, and compatibility with fine-pitch interconnect processing.</p>
+          <div class="tags"><span class="tag">ADVANCED PACKAGING</span><span class="tag">BARRIER FILM</span><span class="tag">INTERFACE</span><span class="tag">RELIABILITY</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── publications ───── -->
+  <section id="publications">
+    <div class="wrap">
+      <div class="head rise">
+        <span class="idx">02 / PUBLICATIONS</span>
+        <h2>Publications</h2>
+      </div>
+
+      <div class="filter rise" role="group" aria-label="Publication filters">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="select" aria-pressed="false">Selected</button>
+        <button class="chip" data-filter="2026" aria-pressed="false">2026</button>
+        <button class="chip" data-filter="2024" aria-pressed="false">2024</button>
+        <button class="chip" data-filter="2022" aria-pressed="false">2022</button>
+        <button class="chip" data-filter="2021" aria-pressed="false">2021</button>
+        <button class="chip" data-filter="2020" aria-pressed="false">2020</button>
+      </div>
+
+      <ul class="pubs rise" id="publist">
+
+        <li class="pub" data-year="2026" data-select="1">
+          <span class="yr">2026</span>
+          <div>
+            <h3><span class="role-tag">C.A</span>Low-bias, broadband photodetection enabled by MAPbI₃/black silicon dual-mode photodetector for compact optoelectronic platforms<span class="star">SELECTED</span></h3>
+            <p class="au">Junyeong Sung, Min Seong Kim, Hyeonryul Lee, Gil Ju Lee, <em>Hyeonghun Kim</em>, and Sooncheol Kwon</p>
+            <p class="venue">Chemical Engineering Journal 527, 171589 (2026)</p>
+            <p class="links"><a href="https://doi.org/10.1016/j.cej.2025.171589" target="_blank" rel="noopener">DOI</a></p>
+          </div>
+        </li>
+
+        <li class="pub" data-year="2024">
+          <span class="yr">2024</span>
+          <div>
+            <h3><span class="role-tag">C.A</span>Monolithic Perovskite–Silicon Dual-Band Photodetector for Efficient Spectral Light Discrimination</h3>
+            <p class="au">Woochul Kim, Yeonju Seo, Dante Ahn, In Soo Kim, Chandran Balamurugan, Gun Young Jung, Sooncheol Kwon, <em>Hyeonghun Kim</em>*, and Yusin Pak*</p>
+            <p class="venue">Advanced Science 11, 2308840 (2024)</p>
+            <p class="links"><a href="https://doi.org/10.1002/advs.202308840" target="_blank" rel="noopener">DOI</a></p>
+          </div>
+        </li>
+
+        <li class="pub" data-year="2022" data-select="1">
+          <span class="yr">2022</span>
+          <div>
+            <h3><span class="role-tag">1st</span>Perovskite multifunctional logic gates via bipolar photoresponse of single photodetector<span class="star">SELECTED</span></h3>
+            <p class="au">Woochul Kim†, <em>Hyeonghun Kim</em>†, Tae Jin Yoo, Jun Young Lee, Ji Young Jo, Byoung Hun Lee, Assa Aravindh Sasikala, Gun Young Jung, and Yusin Pak &nbsp;(†equal contribution)</p>
+            <p class="venue">Nature Communications 13, 720 (2022)</p>
+            <p class="links"><a href="https://doi.org/10.1038/s41467-022-28374-w" target="_blank" rel="noopener">DOI</a></p>
+          </div>
+        </li>
+
+        <li class="pub" data-year="2022" data-select="1">
+          <span class="yr">2022</span>
+          <div>
+            <h3><span class="role-tag">1st</span>Hybrid Silicon–Polymer Photodetector Engineered Using Oxidative Chemical Vapor Deposition for High-Performance and Bias-Switchable Multi-Functionality<span class="star">SELECTED</span></h3>
+            <p class="au"><em>Hyeonghun Kim</em>, Yuxuan Zhang, Molly Rothschild, Kwangdong Roh, et al., and Sunghwan Lee</p>
+            <p class="venue">Advanced Functional Materials 32, 2201641 (2022)</p>
+            <p class="links"><a href="https://doi.org/10.1002/adfm.202201641" target="_blank" rel="noopener">DOI</a></p>
+          </div>
+        </li>
+
+        <li class="pub" data-year="2021" data-select="1">
+          <span class="yr">2021</span>
+          <div>
+            <h3><span class="role-tag">1st</span>Binder-free printed PEDOT wearable sensors on everyday fabrics using oxidative chemical vapor deposition<span class="star">SELECTED</span></h3>
+            <p class="au">Michael Clevenger†, <em>Hyeonghun Kim</em>†, Han Wook Song, Kwangsoo No, and Sunghwan Lee &nbsp;(†equal contribution)</p>
+            <p class="venue">Science Advances 7 (42), eabj8958 (2021)</p>
+            <p class="links"><a href="https://doi.org/10.1126/sciadv.abj8958" target="_blank" rel="noopener">DOI</a></p>
+          </div>
+        </li>
+
+        <li class="pub" data-year="2020">
+          <span class="yr">2020</span>
+          <div>
+            <h3><span class="role-tag">1st</span>Bias-Modulated Multicolor Discrimination Enabled by an Organic–Inorganic Hybrid Perovskite Photodetector with a p-i-n-i-p Configuration</h3>
+            <p class="au"><em>Hyeonghun Kim</em>, Woochul Kim, Yusin Pak, Tae Jin Yoo, Hae-Won Lee, Byoung Hun Lee, Sooncheol Kwon, and Gun Young Jung</p>
+            <p class="venue">Laser &amp; Photonics Reviews 14, 2000305 (2020)</p>
+            <p class="links"><a href="https://doi.org/10.1002/lpor.202000305" target="_blank" rel="noopener">DOI</a></p>
+          </div>
+        </li>
+
+      </ul>
+      <p class="empty" id="empty" hidden>No publications match this filter.</p>
+      <p class="pubnote">[1st] first author (including co-first authorship) · [C.A] corresponding author · This list is representative, not exhaustive.</p>
+      <a href="https://scholar.google.com/citations?user=tNEmkR4AAAAJ&hl=en" target="_blank" rel="noopener" class="btn ghost more">Full list · Google Scholar</a>
+    </div>
+  </section>
+
+  <!-- ───── people ───── -->
+  <section id="people">
+    <div class="wrap">
+      <div class="head rise">
+        <span class="idx">03 / PEOPLE</span>
+        <h2>People</h2>
+      </div>
+
+      <div class="pi rise">
+        <div class="photo">PI photo<br>(square recommended)</div>
+        <div>
+          <h3>Hyeonghun Kim, Ph.D.</h3>
+          <p class="role">ASSISTANT PROFESSOR · PRINCIPAL INVESTIGATOR</p>
+          <p>[EDIT — suggested draft] Prof. Kim received his Ph.D. from the School of Materials Science and Engineering at GIST, and worked as a researcher at the Sensor System Research Center of KIST, a postdoctoral researcher at Purdue University, and a researcher at KICET before joining the School of Chemical Engineering at Chonnam National University. His research focuses on CVD/ALD thin-film processing, photodetectors, chemical sensors, and scintillators.</p>
+          <div class="links">
+            <a href="mailto:hyhkim1210@jnu.ac.kr">EMAIL</a>
+            <a href="https://scholar.google.com/citations?user=tNEmkR4AAAAJ&hl=en" target="_blank" rel="noopener">GOOGLE SCHOLAR</a>
+            <a href="#">CV</a>
+            <a href="#">ORCID</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="grouplabel rise">Combined B.S.–M.S. Program</p>
+      <div class="members rise">
+        <div class="member"><strong>Minkyu Jeon</strong><span>B.S.–M.S.</span></div>
+        <div class="member"><strong>Minkyu Jeong</strong><span>B.S.–M.S.</span></div>
+        <div class="member"><strong>Eunjeong Jang</strong><span>B.S.–M.S.</span></div>
+        <div class="member"><strong>Seojun Hwang</strong><span>B.S.–M.S.</span></div>
+        <div class="member"><strong>Gwanmin Park</strong><span>B.S.–M.S.</span></div>
+      </div>
+
+      <p class="grouplabel rise">Undergraduate Students</p>
+      <div class="members rise">
+        <div class="member"><strong>Yunho Choi</strong><span>UNDERGRADUATE</span></div>
+        <div class="member"><strong>Kiho Choi</strong><span>UNDERGRADUATE</span></div>
+        <div class="member"><strong>Yongju Lee</strong><span>UNDERGRADUATE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── news ───── -->
+  <section id="news">
+    <div class="wrap">
+      <div class="head rise">
+        <span class="idx">04 / NEWS</span>
+        <h2>News</h2>
+      </div>
+      <ul class="news rise">
+        <li><time datetime="2026-07">2026.07</time><p>The HTFP Lab website is now open.</p></li>
+        <li><time datetime="2025-12">2025.12</time><p>Our work on a MAPbI₃/black-silicon dual-mode photodetector was published in <i>Chemical Engineering Journal</i>.</p></li>
+        <li><time datetime="2026-03">2026.03</time><p>[EDIT] New graduate and undergraduate members joined the lab.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ───── join / contact ───── -->
+  <section id="join">
+    <div class="wrap join">
+      <div class="rise">
+        <span class="idx mono" style="color:var(--signal)">05 / JOIN US</span>
+        <h3 style="margin-top:14px">We are looking for new members</h3>
+        <p>We welcome graduate students (M.S./Ph.D. and combined B.S.–M.S.) and undergraduate researchers year-round, from chemical engineering, materials, chemistry, physics, and electronics backgrounds. What matters most is hands-on curiosity — the willingness to run the tools and chase the data to the end.</p>
+        <ul>
+          <li>Reading one or two of our papers before reaching out makes the first meeting much more productive.</li>
+          <li>Email with the subject line "[Application] Name / Program".</li>
+          <li>Please attach your CV, transcript, and a short note on your research interests.</li>
+        </ul>
+        <div class="cta"><a href="mailto:hyhkim1210@jnu.ac.kr" class="btn solid">Email Us</a></div>
+      </div>
+
+      <div class="contact rise">
+        <dl>
+          <div><dt>Email</dt><dd><a href="mailto:hyhkim1210@jnu.ac.kr">hyhkim1210@jnu.ac.kr</a></dd></div>
+          <div><dt>Address</dt><dd>School of Chemical Engineering,<br>Chonnam National University,<br>77 Yongbong-ro, Buk-gu, Gwangju 61186, Republic of Korea</dd></div>
+          <div><dt>Links</dt><dd><a href="https://scholar.google.com/citations?user=tNEmkR4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://eng.jnu.ac.kr" target="_blank" rel="noopener">Chonnam National University</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Hybrid Thin Film Processing Laboratory (하이브리드박막공정연구실)</span>
+  <span>PI. Hyeonghun Kim · Chonnam National University</span>
+</footer>
+
+<script>
+// Publication filter
+const chips = document.querySelectorAll('.chip');
+const pubs  = document.querySelectorAll('.pub');
+const empty = document.getElementById('empty');
+
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+    const f = chip.dataset.filter;
+    let shown = 0;
+    pubs.forEach(p => {
+      const ok = f === 'all'
+        || (f === 'select' && p.dataset.select === '1')
+        || p.dataset.year === f;
+      p.hidden = !ok;
+      if (ok) shown++;
+    });
+    empty.hidden = shown > 0;
+  });
+});
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.rise').forEach((el, i) => {
+  el.style.transitionDelay = (i % 3) * 70 + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
